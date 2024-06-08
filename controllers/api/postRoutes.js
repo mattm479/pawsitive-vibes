@@ -10,8 +10,11 @@ try {
      })
      res.status(200).json(newPost);
 } catch (error) {
-   res.status(400) 
-}
+   res.status(400)
+   if(newPost) {
+    res.status(400).json({ messege: 'no post found with id'});
+    return;
+   }}
 
 
 })
