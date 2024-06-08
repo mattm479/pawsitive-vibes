@@ -24,6 +24,10 @@ Post.init(
             type: DataTypes.STRING,
             allowNull: true,
         },
+        category: {
+            type: DataTypes.ARRAY,
+            allowNull: false
+        },
         user_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
