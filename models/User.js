@@ -38,7 +38,7 @@ User.init(
             allowNull: true
         },
         favorite_animals: {
-            type: DataTypes.ARRAY,
+            type: DataTypes.ARRAY(DataTypes.STRING),
             allowNull: false
         }
     },
