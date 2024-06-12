@@ -6,7 +6,7 @@ router.post('/', withAuth, async (req, res) => {
   try {
     const newPost = await Post.create({
       ...req.body,
-      user_id: req.session.user_id,
+      user_id: req.session.user.id,
     })
     res.status(200).json(newPost);
   } catch (error) {
@@ -20,6 +20,10 @@ router.get('/feed', withAuth, async (req, res) => {
     const posts = await Post.findAll({
       where: {
         category: req.session.user.favorite_animals
+      },
+      include: {
+        model: User,
+        attributes: ['username'],
       },
       exclude: {
         user_id: req.session.user.id
@@ -41,7 +45,11 @@ router.get('/feed/:user_id', withAuth, async (req, res) => {
   try {
     const posts = await Post.findAll({
       where: {
-        user_id: req.params.user_id
+        user_id: req.params.user.id
+      },
+      include: {
+        model: User,
+        attributes: ['username'],
       }
     });
 
