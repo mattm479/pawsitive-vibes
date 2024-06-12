@@ -5,11 +5,12 @@ body{
     min-height: 100vh;
     align-items: center;
     justify-content: center;
-    background-image: url('https://img.money.com/2021/03/Insurance-Pet-2021-Morning-Consult-Survey-Covid.jpg?quality=60&w=1600');
-    background-attachment: fixed;
-    background-size:100% 100%;
+    background-image: url('Pets.jpg');
     background-repeat: no-repeat;
-
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    
+    
 }
 
 
@@ -21,10 +22,10 @@ body{
 
 .page{
     width:400px;
-    height: 400px;
-    background: #ffffff;
+    height: 425px;
+    background: #f1efee;
     border-radius: 20px;
-    padding-bottom: 15px;
+    padding-bottom: 20px;
 
 }
 .logo{
