@@ -2,7 +2,7 @@ const router = require('express').Router();
 
 router.get('/', async (req, res) => {
   try {
-    res.render('homepage', { user: req.session.user });
+    res.render('login', { user: req.session.user });
   } catch (err) {
     res.status(500).json(err);
   }
