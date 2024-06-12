@@ -56,4 +56,4 @@ router.get('/feed/:user_id', withAuth, async (req, res) => {
   }
 });
 
-module.exports = router;
+module.exports = router
