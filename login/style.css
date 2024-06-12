@@ -5,7 +5,10 @@ body{
     min-height: 100vh;
     align-items: center;
     justify-content: center;
-    background-color: rgb(203, 174, 137);
+    background-image: url('https://img.money.com/2021/03/Insurance-Pet-2021-Morning-Consult-Survey-Covid.jpg?quality=60&w=1600');
+    background-attachment: fixed;
+    background-size:100% 100%;
+    background-repeat: no-repeat;
 
 }
 
@@ -17,17 +20,26 @@ body{
 }
 
 .page{
-    width:350px;
-    background: #fff;
-    border-radius: 5px;
+    width:400px;
+    height: 400px;
+    background: #ffffff;
+    border-radius: 20px;
     padding-bottom: 15px;
 
 }
+.logo{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+
+}
+
 
 .title{
     color: #0c0c0c;
     text-align: center;
-    padding: 30px 0;
+    padding: 25px 0;
     text-transform: capitalize;
     font-size: 25px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
