@@ -3,32 +3,8 @@
     "id": 1,
     "username": "mattm479",
     "email": "mattm479@gmail.com",
-    "password": "",
+    "password": "Nicholas8^3$",
     "profile_picture": "",
     "favorite_animals": ["Cats", "Reptiles"]
-  },
-  {
-    "id": 2,
-    "username": "",
-    "email": "",
-    "password": "",
-    "profile_picture": "",
-    "favorite_animals": ["", ""]
-  },
-  {
-    "id": 3,
-    "username": "",
-    "email": "",
-    "password": "",
-    "profile_picture": "",
-    "favorite_animals": ["", ""]
-  },
-  {
-    "id": 4,
-    "username": "",
-    "email": "",
-    "password": "",
-    "profile_picture": "",
-    "favorite_animals": ["", ""]
   }
 ]
