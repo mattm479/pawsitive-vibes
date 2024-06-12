@@ -1,0 +1,34 @@
+@import 'node_modules/bulma/bulma';
+
+// Color variables defined 
+$primary-color: #8B94A3; // Cool Gray
+$secondary-color: #8cfbde; // Aquamarine
+$tertiary-color: #0FFF95; // Spring Green
+$accent-color: #06BA63; // Emerald
+$dark-color: #103900; // Pakistan Green
+
+$primary: $primary-color;
+$info: $secondary-color;
+$success: $tertiary-color;
+$warning: $accent-color;
+$danger: $dark-color;
+
+body {
+  background-color: $primary-color;
+  color: $dark-color;
+}
+
+.navbar {
+  background-color: $primary-color;
+}
+
+.button.is-primary {
+  background-color: $accent-color;
+  border-color: $accent-color;
+  color: #fff;
+
+  &:hover {
+    background-color: darken($accent-color, 10%);
+    border-color: darken($accent-color, 10%);
+  }
+}
