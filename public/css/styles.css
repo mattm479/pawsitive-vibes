@@ -1,7 +1,13 @@
 /* General Styles */
 body {
-    background-color: #f5f5f5;
     font-family: 'Arial', sans-serif;
+    margin: 0 auto;
+    padding: 0;
+    min-height: 100vh;
+    background-image: url('images/Pets.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
 }
 
 /* Navigation Bar */
@@ -69,4 +75,100 @@ body {
 .button.is-link:hover {
     background-color: #1e87d2;
     border-color: #1e87d2;
+}
+
+.text{
+    color: #fff;
+    letter-spacing: 1px;
+    margin:10px;
+}
+
+.page{
+    width:400px;
+    height: 440px;
+    background: #f1efee;
+    border-radius: 20px;
+    padding-bottom: 20px;
+
+}
+
+.logo{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 25%;
+
+}
+
+
+.title{
+    color: white;
+    text-align: center;
+    padding: 25px 0;
+    text-transform: capitalize;
+    font-size: 25px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
+
+form{
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+form input{
+    margin-top: 1px;
+    margin-bottom: 1px;
+    border: 1px solid rgba(0,0,0,0.4);
+    border-radius: 3px;
+    outline: none;
+}
+form input:focus{
+    border:1px solid rgba(0,0,0,0.7);
+    background: #efefef;
+
+}
+form button{
+    border: none;
+    background:#5c9340;
+    padding: 5px 0;
+    margin-top: 5px;
+    color:#fff;
+    border-radius: 3px;
+    font-weight: bold;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    outline:none;
+    cursor: pointer;
+
+}
+form button:active{
+    background:#1b6330;
+}
+
+.page .signup{
+    text-align: center;
+    position: relative;
+    width: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 30px;
+}
+.signup a{
+
+    text-decoration: none;
+    margin-left: 1px;
+    color: #008aff;
+    font-weight: bold;
+}
+.Animals{
+    text-align: center;
+}
+
+img {
+    width: 100px;
+    height: 100px;
 }

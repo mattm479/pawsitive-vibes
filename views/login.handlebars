@@ -1,17 +1,59 @@
-<form id="login-form">
+<div class="container center">
+<div class="page">
+  <div class="title mb-1">Pawsitive Vibes</div>
+  <img src="images/PV Logo.png" class="logo" alt="Pawsitive Vibes Logo">
+  <form id="login-form">
     <div class="field">
-        <label class="label">Email</label>
-        <div class="control">
-            <input class="input" type="email" name="email" id="email" required>
-        </div>
+      <label for="email">Email:</label>
+      <div class="control">
+        <input class="input has-background-white is-small" type="email" name="email" id="email" required />
+      </div>
     </div>
     <div class="field">
-        <label class="label">Password</label>
-        <div class="control">
-            <input class="input" type="password" name="password" id="password" required>
+      <label for="password">Password:</label>
+      <div class="control">
+        <input class="input has-background-white is-small" type="password" name="password" id="password" required />
+      </div>
+    </div>
+    <button type="submit" id="login" name="login">Login</button>
+  </form>
+  <div class="signup">
+    <p>Don't have an account?<button class="button is-ghost is-small" id="signup">Sign up</button></p>
+  </div>
+</div>
+
+<!--modal-->
+<div class="modal">
+  <div class="modal-background"></div>
+  <div class="modal-content has-background-white py-5 px-5">
+    <h1 class="title mb-1">Sign Up</h1>
+    <form id="signup-form">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required>
+      <label for="signup-email">Email:</label>
+      <input type="email" id="signup-email" name="email" required>
+      <label for="signup-password">Password:</label>
+      <input type="password" id="signup-password" name="password" required>
+      <label for="confirm-password">Confirm Password:</label>
+      <input type="password" id="confirm-password" name="confirm-password" required>
+      <fieldset>
+        <legend>What are your Interests?:</legend>
+        <div>
+          <input type="checkbox" id="cats" name="interests" value="Cats" />
+          <label for="cats">Cats</label>
         </div>
-    </div>
-    <div class="control">
-        <button class="button is-primary" type="submit">Login</button>
-    </div>
-</form>
+        <div>
+          <input type="checkbox" id="dogs" name="interests" value="Dogs" />
+          <label for="dogs">Dogs</label>
+        </div>
+        <div>
+          <input type="checkbox" id="reptiles" name="interests" value="Reptiles" />
+          <label for="reptiles">Reptiles</label>
+        </div>
+      </fieldset>
+      <button type="submit" class="button is-primary">Submit</button>
+    </form>
+  </div>
+</div>
+</div>
+<script src="js/login.js"></script>

@@ -1,96 +1,86 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Feed - Pawsitive Vibes</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
-</head>
-<body>
-    <nav class="navbar is-primary">
-        <div class="navbar-brand">
-            <a class="navbar-item" href="#">
-                Pawsitive Vibes
-            </a>
-            <div class="navbar-burger" data-target="navbarMenu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-        <div id="navbarMenu" class="navbar-menu">
-            <div class="navbar-end">
-                <a class="navbar-item" href="/feed">Feed</a>
-                <a class="navbar-item" href="/profile">Profile</a>
-                <a class="navbar-item" href="/logout">Logout</a>
-            </div>
-        </div>
-    </nav>
-    <section class="section feed-page">
-        <div class="container">
-            <button class="button is-primary" id="create-post-button">Create a Post</button>
-            <div class="box">
-                <h2 class="title is-4">Feed</h2>
-                <div class="posts-container">
-                    <div class="post box">
-                        <figure class="image is-4by3">
-                            <img src="images/hulk.jpg" alt="Post Image">
-                        </figure>
-                        <p>Post description...</p>
-                        <small>Posted by: <a href="profile.html?user=1">UserName</a> on <span>2024-01-01</span></small>
-                    </div>
-                    <div class="post box">
-                        <figure class="image is-4by3">
-                            <img src="images/hulk.jpg" alt="Post Image">
-                        </figure>
-                        <p>Post description...</p>
-                        <small>Posted by: <a href="profile.html?user=2">UserName</a> on <span>2024-01-01</span></small>
-                    </div>
-                    <!-- More posts... -->
-                </div>
-                <nav class="pagination is-centered" role="navigation" aria-label="pagination">
-                    <a class="pagination-previous">Previous</a>
-                    <a class="pagination-next">Next</a>
-                    <ul class="pagination-list">
-                        <li><a class="pagination-link">1</a></li>
-                        <li><a class="pagination-link">2</a></li>
-                        <li><a class="pagination-link">3</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </section>
-
-    <!-- Post Creation Modal -->
-    <div id="post-modal" class="modal">
-        <div class="modal-background"></div>
-        <div class="modal-card">
-            <header class="modal-card-head">
-                <p class="modal-card-title">Create a Post</p>
-                <button class="delete" aria-label="close"></button>
-            </header>
-            <section class="modal-card-body">
-                <form id="post-form">
-                    <div class="field">
-                        <div class="control">
-                            <textarea class="textarea" id="post-content" placeholder="What's on your mind?" required></textarea>
-                        </div>
-                    </div>
-                    <div class="field">
-                        <div class="control">
-                            <input class="input" type="file" id="post-media">
-                        </div>
-                    </div>
-                </form>
-            </section>
-            <footer class="modal-card-foot">
-                <button class="button is-primary" type="submit" form="post-form">Post</button>
-                <button class="button" id="cancel-button">Cancel</button>
-            </footer>
+<nav class="navbar is-primary">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="#">
+            Pawsitive Vibes
+        </a>
+        <div class="navbar-burger" data-target="navbarMenu">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
     </div>
+    <div id="navbarMenu" class="navbar-menu">
+        <div class="navbar-end">
+            <a class="navbar-item" href="/feed">Feed</a>
+            <a class="navbar-item" href="/profile">Profile</a>
+            <a class="navbar-item" href="/logout">Logout</a>
+        </div>
+    </div>
+</nav>
+<section class="section feed-page">
+    <div class="container">
+        <div class="box">
+            <h2 class="title is-4">Feed</h2>
+            <button class="button is-primary" id="create-post-button">Create a Post</button>
+            <div class="posts-container">
+              {{#each posts}}
+                <div class="post box">
+                  {{#if this.image}}
+                  <figure class="image is-4by3">
+                    <img src="images/{{this.image}}" alt="Post Image">
+                  </figure>
+                  {{/if}}
+                  {{#if this.content}}
+                  <p>{{this.content}}</p>
+                  {{/if}}
+                  <small>Posted by: <a href="/profile/{{this.user_id}}">{{this.user.username}}</a> on <span>{{ format_date this.createdAt }}</span></small>
+                </div>
+              {{/each}}
+            </div>
+        </div>
+    </div>
+</section>
 
-    <script src="js/feed.js"></script>
-</body>
-</html>
+<!-- Post Creation Modal -->
+<div id="post-modal" class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Create a Post</p>
+            <button class="delete" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <form id="post-form">
+                <div class="field">
+                    <div class="control">
+                        <textarea class="textarea" id="post-content" placeholder="What's on your mind?" required></textarea>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <input class="input" type="file" id="post-media">
+                    </div>
+                </div>
+              <fieldset>
+                <legend>Choose your category</legend>
+                <div>
+                  <input type="radio" id="cats" name="interests" value="Cats">
+                  <label for="cats">Cats</label>
+                </div>
+                <div>
+                  <input type="radio" id="dogs" name="interests" value="Dogs">
+                  <label for="dogs">Dogs</label>
+                </div>
+                <div>
+                  <input type="radio" id="reptiles" name="interests" value="Reptiles">
+                  <label for="reptiles">Reptiles</label>
+                </div>
+              </fieldset>
+              <button class="button is-primary" type="submit">Post</button>
+              <button class="button" id="cancel-button">Cancel</button>
+            </form>
+        </section>
+    </div>
+</div>
+
+<script src="js/feed.js"></script>
