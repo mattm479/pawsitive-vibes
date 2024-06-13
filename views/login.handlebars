@@ -1,17 +1,17 @@
-<form action="/api/users/login" method="POST">
-  <div class="field">
-    <label class="label">Email</label>
-    <div class="control">
-      <input class="input" type="email" name="email" required>
+<form id="login-form">
+    <div class="field">
+        <label class="label">Email</label>
+        <div class="control">
+            <input class="input" type="email" name="email" id="email" required>
+        </div>
     </div>
-  </div>
-  <div class="field">
-    <label class="label">Password</label>
-    <div class="control">
-      <input class="input" type="password" name="password" required>
+    <div class="field">
+        <label class="label">Password</label>
+        <div class="control">
+            <input class="input" type="password" name="password" id="password" required>
+        </div>
     </div>
-  </div>
-  <div class="control">
-    <button class="button is-primary" type="submit">Login</button>
-  </div>
+    <div class="control">
+        <button class="button is-primary" type="submit">Login</button>
+    </div>
 </form>
