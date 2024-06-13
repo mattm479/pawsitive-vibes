@@ -24,28 +24,30 @@ router.post('/login', async (req,res) => {
          .status(400)
          .json({message: 'incorrect email or password try again '});
          return;
-      }   
-      
-      const vaildpassword = await UserData.checkpassword(req.body.password);
+      }
 
-      if (!vaildpassword) {
+      const validPassword = await UserData.checkPassword(req.body.password);
+
+      if (!validPassword) {
         res
            .status(400)
            .json({ message: 'Incorrect email or password, try again'})
            return;
       }
-      
+
        req.session.save(() => {
          req.session.user = UserData;
-        }); 
+
+         res.status(200).json(UserData);
+        });
     } catch (error) {
      res.status(400).json(error);
     }
 });
- 
+
 router.post('/logout', (req,res) => {
      req.session.destroy()
-     res.status(204); 
-});   
+     res.status(204);
+});
 
 module.exports = router;
