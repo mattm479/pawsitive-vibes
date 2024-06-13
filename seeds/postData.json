@@ -4,7 +4,7 @@
     "content": "Doodlebug is the bestest",
     "status": "Active",
     "image": "",
-    "category": ["Cats"],
+    "category": "Cats",
     "user_id": 1
   },
   {
@@ -12,7 +12,7 @@
     "content": "Beezer was the handsomest kitty in all the land",
     "status": "Active",
     "image": "",
-    "category": ["Cats"],
+    "category": "Cats",
     "user_id": 1
   }
 ]

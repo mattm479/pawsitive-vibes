@@ -1,6 +1,8 @@
 module.exports = {
-   format_date: (Date) => {
-     // format date as YYYY/MM/DD
-     return Date.toLocaleDateString();
+   format_date: (date) => {
+     return new Intl.DateTimeFormat('en-US', {
+       dateStyle: 'medium',
+       timeStyle: 'medium'
+     }).format(date);
    },
 };

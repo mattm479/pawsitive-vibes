@@ -1,17 +1,11 @@
 const sequelize = require('../config/connection');
 const { User, Post } = require('../models');
-const bcrypt = require('bcrypt');
 
 const userData = require('./userData.json');
 const postData = require('./postData.json');
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
-
-  // Hash passwords before bulk create
-  for (const user of userData) {
-    user.password = await bcrypt.hash(user.password, 10);
-  }
 
   const users = await User.bulkCreate(userData, {
     individualHooks: true,

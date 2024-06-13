@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Feed - Pawsitive Vibes</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
 </head>
 <body>
     <nav class="navbar is-primary">
@@ -29,35 +29,24 @@
     </nav>
     <section class="section feed-page">
         <div class="container">
-            <button class="button is-primary" id="create-post-button">Create a Post</button>
             <div class="box">
                 <h2 class="title is-4">Feed</h2>
+                <button class="button is-primary" id="create-post-button">Create a Post</button>
                 <div class="posts-container">
+                  {{#each posts}}
                     <div class="post box">
-                        <figure class="image is-4by3">
-                            <img src="images/hulk.jpg" alt="Post Image">
-                        </figure>
-                        <p>Post description...</p>
-                        <small>Posted by: <a href="profile.html?user=1">UserName</a> on <span>2024-01-01</span></small>
+                      {{#if this.image}}
+                      <figure class="image is-4by3">
+                        <img src="images/{{this.image}}" alt="Post Image">
+                      </figure>
+                      {{/if}}
+                      {{#if this.content}}
+                      <p>{{this.content}}</p>
+                      {{/if}}
+                      <small>Posted by: <a href="/profile/{{this.user_id}}">{{this.user.username}}</a> on <span>{{ format_date this.createdAt }}</span></small>
                     </div>
-                    <div class="post box">
-                        <figure class="image is-4by3">
-                            <img src="images/hulk.jpg" alt="Post Image">
-                        </figure>
-                        <p>Post description...</p>
-                        <small>Posted by: <a href="profile.html?user=2">UserName</a> on <span>2024-01-01</span></small>
-                    </div>
-                    <!-- More posts... -->
+                  {{/each}}
                 </div>
-                <nav class="pagination is-centered" role="navigation" aria-label="pagination">
-                    <a class="pagination-previous">Previous</a>
-                    <a class="pagination-next">Next</a>
-                    <ul class="pagination-list">
-                        <li><a class="pagination-link">1</a></li>
-                        <li><a class="pagination-link">2</a></li>
-                        <li><a class="pagination-link">3</a></li>
-                    </ul>
-                </nav>
             </div>
         </div>
     </section>
