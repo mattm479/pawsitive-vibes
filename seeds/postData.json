@@ -1,17 +1,17 @@
 [
   {
-    "id": 1,
+    "title": "Doodlebug Post",
+    "content": "Doodlebug is the bestest",
     "status": "Active",
     "image": "",
-    "text": "Doodlebug is the bestest",
     "category": ["Cats"],
     "user_id": 1
   },
   {
-    "id": 2,
+    "title": "Beezer Post",
+    "content": "Beezer was the handsomest kitty in all the land",
     "status": "Active",
     "image": "",
-    "text": "Beezer was the handsomest kitty in all the land",
     "category": ["Cats"],
     "user_id": 1
   }
