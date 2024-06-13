@@ -1,17 +1,65 @@
-<form action="/api/user/login" method="POST">
-    <div class="field">
-        <label class="label">Email</label>
-        <div class="control">
-            <input class="input" type="email" name="email" required>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Pawsitive Vibes Login</title>
+</head>
+<body>
+    <p style="background-image: url(images/Pets.jpg);"></p>
+
+<div class="container, center">
+        <div class="page">
+        <div class="title mb-1">Pawsitive Vibes</div>
+        <img src="images/PV Logo.png" class="logo" alt="Pawsitive Vibes Logo">
+        <form id="login-form">
+            <div class="field">
+                <label class="username or email">Username or Email:</label>
+                <div class="control">
+                    <input class="input has-background-white is-small" type="email" name="email" id="email" required>
+                </div>
+            </div>
+            <div class="field">    
+                <label class="password">Password:</label>
+                <div class="control">
+                    <input class="input has-background-white is-small" type="password" name="password" id="password" required>
+                </div>
+            </div>    
+            <button type="submit">Log in</button>
+        </form>
+        <div class="signup">
+            <p>Don't have an account?<button class="button is-ghost is-small" id="signup">Sign up</button></p>
         </div>
+</div>
+
+<!--modal-->
+<div class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-content has-background-white py-5 px-5">
+        <h1 class="title mb-1">Sign Up</h1>
+        <form>
+            <label for="Email">Email:</label>
+            <input type="email" required>
+            <label for="Username">Username:</label>
+            <input type="text" required>
+            <label for="password">Password:</label>
+            <input type="password" required>
+            <label for="confirm_password">Confirm Password:</label>
+            <input type="password" required>
+            <label for="Animals">What are your Intersts?:</label>
+            <div class="buttons are-normal is-centered">
+                <button class="button is-light">Dogs</button>
+                <button class="button is-light">Cats</button>
+                <button class="button is-light">Reptiles</button>
+              </div>
+
+            <button>Submit</button>
+        </form>
     </div>
-    <div class="field">
-        <label class="label">Password</label>
-        <div class="control">
-            <input class="input" type="password" name="password" required>
-        </div>
-    </div>
-    <div class="control">
-        <button class="button is-primary" type="submit">Login</button>
-    </div>
-</form>
+</div>
+
+<script src="js/login.js"></script>
+</body>
+</html>
