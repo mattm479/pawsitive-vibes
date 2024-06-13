@@ -35,19 +35,32 @@ const loginFormHandler = async (event) => {
 const signupFormHandler = async (event) => {
     event.preventDefault();
 
-    const name = document.querySelector('#name-signup').value.trim();
-    const email = document.querySelector('#email-signup').value.trim();
-    const password = document.querySelector('#password-signup').value.trim();
+    const username = document.querySelector('#username').value.trim();
+    const email = document.querySelector('#signup-email').value.trim();
+    const password = document.querySelector('#signup-password').value.trim();
+    const confirmPassword = document.querySelector('#confirm-password').value.trim();
+    const profile_picture = '';
+    const favorite_animals = [];
+    const checkboxes = document.querySelectorAll('input[type=checkbox]:checked');
 
-    if (name && email && password) {
+    for (let i = 0; i < checkboxes.length; i++) {
+        favorite_animals.push(checkboxes[i].value);
+    }
+
+    if (password !== confirmPassword) {
+        alert('Passwords do not match');
+        return;
+    }
+
+    if (username && email && password) {
         const response = await fetch('/api/users', {
             method: 'POST',
-            body: JSON.stringify({ name, email, password }),
+            body: JSON.stringify({ username, email, password, profile_picture, favorite_animals }),
             headers: { 'Content-Type': 'application/json' },
         });
 
         if (response.ok) {
-            document.location.replace('/profile');
+            document.location.replace('/login');
         } else {
             alert(response.statusText);
         }
