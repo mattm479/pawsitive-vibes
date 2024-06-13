@@ -1,7 +1,6 @@
 const withAuth = require('../utils/auth');
 const { Post, User } = require('../models');
 const router = require('express').Router();
-const { Post, User } = require('../models');
 
 // Home Route
 router.get('/', async (req, res) => {
@@ -13,7 +12,7 @@ router.get('/', async (req, res) => {
 });
 
 // Feed Route
-router.get('/feed', async (req, res) => {
+router.get('/feed', withAuth, async (req, res) => {
   try {
     const posts = await Post.findAll({
       include: [{ model: User }]
@@ -30,31 +29,21 @@ router.get('/feed', async (req, res) => {
 });
 
 // Profile Route
-router.get('/profile', async (req, res) => {
+router.get('/profile', withAuth, async (req, res) => {
   try {
-    if (!req.session.user_id) {
-      console.log('User not logged in');
-      res.redirect('/login');
-      return;
-    }
-    console.log('Session User ID:', req.session.user_id);
     const user = await User.findByPk(req.session.user_id, {
       include: [{ model: Post }]
     });
     if (!user) {
-      console.log('No user found with this id');
       res.status(404).json({ message: 'No user found with this id' });
       return;
     }
     const userData = user.get({ plain: true });
 
-    console.log('User data:', userData);
-
     res.render('profile', {
       user: userData
     });
   } catch (err) {
-    console.log('Error:', err);
     res.status(500).json(err);
   }
 });
@@ -77,36 +66,7 @@ router.get('/signup', (req, res) => {
   }
 });
 
-router.get('/feed', withAuth, async (req, res) => {
-  try {
-    const posts = await Post.findAll({
-      where: {
-        category: req.session.user.favorite_animals
-      },
-      include: {
-        model: User,
-        attributes: ['username'],
-      },
-      exclude: {
-        user_id: req.session.user.id
-      }
-    });
-
-    if (!posts) {
-      res.status(404).json('No posts found');
-    }
-
-    res.render('feed', { posts });
-  } catch (error) {
-    console.error(error);
-    res.status(400).json(error);
-  }
-});
-
-router.get('/profile', withAuth, (req, res)=> {
-  res.render('profile', { user: req.session.user });
-});
-
+// Logout Route
 router.get('/logout', (req, res) => {
   req.session.destroy();
   res.render('login');

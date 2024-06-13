@@ -7,7 +7,7 @@ const bcrypt = require('bcrypt');
 router.post('/login', async (req, res) => {
     try {
         const { email, password } = req.body;
-        const user = await User.findOne({ where: { email } });
+        const user = await User.findOne({ where: { email: email.toLowerCase() } });
 
         if (!user) {
             return res.status(400).json({ error: 'User not found' });
@@ -19,8 +19,8 @@ router.post('/login', async (req, res) => {
             return res.status(400).json({ error: 'Invalid password' });
         }
 
-        req.session.userId = user.id;
-        console.log('User logged in, session userId:', req.session.userId);
+        req.session.user_id = user.id;
+        console.log('User logged in, session userId:', req.session.user_id);
         res.status(200).json({ message: 'Login successful' });
     } catch (err) {
         console.error(err);
