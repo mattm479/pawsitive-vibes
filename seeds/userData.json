@@ -6,5 +6,13 @@
     "password": "Nicholas8^3$",
     "profile_picture": "",
     "favorite_animals": ["Cats", "Reptiles"]
+  },
+  {
+    "id": 2,
+    "username": "philchoi",
+    "email": "choi.phil87@gmail.com",
+    "password": "Deerfield4742!",
+    "profile_picture": "",
+    "favorite_animals": ["Dogs", "Birds"]
   }
 ]
