@@ -5,4 +5,7 @@ module.exports = {
        timeStyle: 'medium'
      }).format(date);
    },
+  add_spaces: (data) => {
+     return data.toString().replace(",", ", ");
+  }
 };

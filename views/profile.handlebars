@@ -21,33 +21,34 @@
 <section class="section profile-page">
   <div class="container">
     <div class="columns">
-      <div class="column is-one-third">
-        <figure class="image is-128x128">
-          <img src="{{user.profile_picture}}" alt="Profile Picture">
-        </figure>
-        <div class="box">
-          <h2 class="title is-4">About Me</h2>
-          <p>{{user.about_me}}</p>
+        <div class="column is-one-third">
+          <figure class="image is-128x128">
+            <img src="{{user.profile_picture}}" alt="Profile Picture">
+          </figure>
+          <div class="box">
+            <h2 class="title is-4">About Me</h2>
+            <p>{{user.about_me}}</p>
+          </div>
+          <div class="box">
+            <h3 class="title is-5">User Info</h3>
+            <p>Username: <span id="user-name">{{user.username}}</span></p>
+            <p>Email: <span id="user-email">{{user.email}}</span></p>
+            <p>Animals Interested In: <span id="user-interests">{{add_spaces user.favorite_animals}}</span></p>
         </div>
-        <div class="box">
-          <h3 class="title is-5">User Info</h3>
-          <p>Username: <span id="user-name">{{user.username}}</span></p>
-          <p>Email: <span id="user-email">{{user.email}}</span></p>
-          <p>Animals Interested In: <span id="user-interests">{{user.favorite_animals}}</span></p>
-      </div>
-      <div class="column">
-        <div class="box">
-          <h2 class="title is-4">User Posts</h2>
-          {{#each posts}}
-            <div class="post">
-              {{#if this.image}}
-              <figure class="image is-4by3">
-                <img src="{{this.image}}" alt="Post Image">
-              </figure>
-              {{/if}}
-              <p>{{this.content}}</p>
-            </div>
-          {{/each}}
+        <div class="column">
+          <div class="box">
+            <h2 class="title is-4">User Posts</h2>
+            {{#each posts}}
+              <div class="post">
+                {{#if this.image}}
+                <figure class="image is-4by3">
+                 <img src="{{this.image}}" alt="Post Image">
+                </figure>
+                {{/if}}
+                <p>{{this.content}}</p>
+              </div>
+            {{/each}}
+          </div>
         </div>
       </div>
     </div>

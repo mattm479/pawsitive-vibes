@@ -60,7 +60,6 @@ router.get('/feed', withAuth, async (req, res) => {
 });
 
 router.get('/profile', withAuth, async (req, res)=> {
-  console.log(req.session.user);
   const posts = await Post.findAll({
     where: {
       user_id: req.session.user.id
