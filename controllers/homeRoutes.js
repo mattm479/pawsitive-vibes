@@ -34,15 +34,15 @@ router.get('/feed', withAuth, async (req, res) => {
   try {
     const posts = await Post.findAll({
       where: {
-        category: req.session.user.favorite_animals,
-        user_id: {
-          [Op.ne]: req.session.user.id
-        }
+        category: req.session.user.favorite_animals
       },
       include: {
         model: User,
         attributes: ['username'],
-      }
+      },
+      order: [
+        ['createdAt', 'DESC']
+      ],
     });
 
     if (!posts) {

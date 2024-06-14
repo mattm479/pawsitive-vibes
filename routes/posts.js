@@ -17,7 +17,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 // Endpoint to create a post
-router.post('/api/posts', upload.single('postMedia'), async (req, res) => {
+router.post('/api/posts', upload.single('post-media'), async (req, res) => {
     try {
         console.log('Session user ID:', req.session.userID); // Log user ID
         const { content } = req.body;
