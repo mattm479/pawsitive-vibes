@@ -27,7 +27,7 @@
                 <div class="post box">
                   {{#if this.image}}
                   <figure class="image is-4by3">
-                    <img src="images/{{this.image}}" alt="Post Image">
+                    <img src="uploads/{{this.image}}" alt="Post Image">
                   </figure>
                   {{/if}}
                   {{#if this.content}}
@@ -50,15 +50,15 @@
             <button class="delete" aria-label="close"></button>
         </header>
         <section class="modal-card-body">
-            <form id="post-form">
+            <form id="post-form" action="/api/posts" method="post" enctype="multipart/form-data">
                 <div class="field">
                     <div class="control">
-                        <textarea class="textarea" id="post-content" placeholder="What's on your mind?" required></textarea>
+                        <textarea class="textarea" id="post-content" name="post-content" placeholder="What's on your mind?" required></textarea>
                     </div>
                 </div>
                 <div class="field">
                     <div class="control">
-                        <input class="input" type="file" id="post-media">
+                        <input class="input" type="file" id="post-media" name="post-media">
                     </div>
                 </div>
               <fieldset>

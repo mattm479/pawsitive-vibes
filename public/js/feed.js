@@ -42,4 +42,39 @@ const postFormHandler = async (event) => {
     }
 };
 
-document.querySelector("#post-form").addEventListener('submit', postFormHandler);
+/** @param {Event} event */
+async function handleSubmit(event) {
+    /** @type {HTMLFormElement} */
+    const form = event.currentTarget;
+    const url = new URL(form.action);
+    const formData = new FormData(form);
+    const searchParams = new URLSearchParams(formData);
+
+    /** @type {Parameters<fetch>[1]} */
+    const fetchOptions = {
+        method: form.method,
+    };
+
+    if (form.method.toLowerCase() === 'post') {
+        if (form.enctype === 'multipart/form-data') {
+            fetchOptions.body = formData;
+        } else {
+            fetchOptions.body = searchParams;
+        }
+    } else {
+        url.search = searchParams;
+    }
+
+    const response = await fetch(url, fetchOptions);
+
+    if (response.ok) {
+        document.location.replace('/feed');
+    } else {
+        alert(response.statusText);
+    }
+
+    event.preventDefault();
+
+}
+
+document.querySelector("#post-form").addEventListener('submit', handleSubmit);
