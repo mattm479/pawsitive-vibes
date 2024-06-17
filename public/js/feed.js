@@ -33,7 +33,7 @@ const postFormHandler = async (event) => {
         });
 
         if (response.ok) {
-            document.location.replace('/feed');
+            document.location.redirect('/feed');
         } else {
             alert(response.statusText);
         }
@@ -44,6 +44,8 @@ const postFormHandler = async (event) => {
 
 /** @param {Event} event */
 async function handleSubmit(event) {
+    event.preventDefault();
+
     /** @type {HTMLFormElement} */
     const form = event.currentTarget;
     const url = new URL(form.action);
@@ -68,13 +70,10 @@ async function handleSubmit(event) {
     const response = await fetch(url, fetchOptions);
 
     if (response.ok) {
-        document.location.reload();
+        document.location.replace('/feed');
     } else {
         alert(response.statusText);
     }
-
-    event.preventDefault();
-
 }
 
 document.querySelector("#post-form").addEventListener('submit', handleSubmit);
