@@ -1,0 +1,11 @@
+<div class="post box">
+  {{#if this.image}}
+    <figure>
+      <img src="uploads/{{this.image}}" width="400" height="400" alt="Post Image">
+    </figure>
+  {{/if}}
+  {{#if this.content}}
+    <p>{{this.content}}</p>
+  {{/if}}
+  <small>Posted by: <a href="/profile/{{user.id}}">{{user.username}}</a> on <span>{{ format_date this.createdAt }}</span></small>
+</div>

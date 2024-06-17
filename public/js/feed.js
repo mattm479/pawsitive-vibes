@@ -68,7 +68,7 @@ async function handleSubmit(event) {
     const response = await fetch(url, fetchOptions);
 
     if (response.ok) {
-        document.location.replace('/feed');
+        document.location.reload();
     } else {
         alert(response.statusText);
     }

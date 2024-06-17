@@ -1,40 +1,13 @@
-<nav class="navbar is-primary">
-    <div class="navbar-brand">
-        <a class="navbar-item" href="#">
-            Pawsitive Vibes
-        </a>
-        <div class="navbar-burger" data-target="navbarMenu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-    </div>
-    <div id="navbarMenu" class="navbar-menu">
-        <div class="navbar-end">
-            <a class="navbar-item" href="/feed">Feed</a>
-            <a class="navbar-item" href="/profile">Profile</a>
-            <a class="navbar-item" href="/logout">Logout</a>
-        </div>
-    </div>
-</nav>
+{{> navbar this }}
 <section class="section feed-page">
     <div class="container">
         <div class="box">
-            <h2 class="title is-4">Feed</h2>
+          <div class="top-left">
             <button class="button is-primary" id="create-post-button">Create a Post</button>
+          </div>
             <div class="posts-container">
               {{#each posts}}
-                <div class="post box">
-                  {{#if this.image}}
-                  <figure class="image is-4by3">
-                    <img src="uploads/{{this.image}}" alt="Post Image">
-                  </figure>
-                  {{/if}}
-                  {{#if this.content}}
-                  <p>{{this.content}}</p>
-                  {{/if}}
-                  <small>Posted by: <a href="/profile/{{this.user_id}}">{{this.user.username}}</a> on <span>{{ format_date this.createdAt }}</span></small>
-                </div>
+                {{> post }}
               {{/each}}
             </div>
         </div>
@@ -76,8 +49,8 @@
                   <label for="reptiles">Reptiles</label>
                 </div>
               </fieldset>
+              <br/>
               <button class="button is-primary" type="submit">Post</button>
-              <button class="button" id="cancel-button">Cancel</button>
             </form>
         </section>
     </div>

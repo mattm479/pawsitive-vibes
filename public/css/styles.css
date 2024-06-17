@@ -8,6 +8,8 @@ body {
 
 /* Navigation Bar */
 .navbar {
+    background-color: #5c9340;
+    font-weight: bold;
     margin-bottom: 20px;
 }
 
@@ -54,7 +56,7 @@ body {
 
 /* Custom Button Styles */
 .button.is-primary {
-    background-color: #4caf50;
+    background-color: #5c9340;
     border-color: #4caf50;
 }
 
@@ -165,7 +167,13 @@ form button:active{
     text-align: center;
 }
 
-img {
-    width: 100px;
-    height: 100px;
+.top-left {
+    position: relative;
+    top: 0;
+    left: 0;
+    margin-bottom: 50px;
+}
+
+#post-modal input {
+    margin-top: 5px;
 }

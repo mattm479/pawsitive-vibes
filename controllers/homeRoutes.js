@@ -38,7 +38,7 @@ router.get('/feed', withAuth, async (req, res) => {
       },
       include: {
         model: User,
-        attributes: ['username'],
+        attributes: [ 'id', 'username' ]
       },
       order: [
         ['createdAt', 'DESC']
@@ -52,7 +52,7 @@ router.get('/feed', withAuth, async (req, res) => {
 
     const postData = posts.map(post => post.get({ plain: true }));
 
-    res.render('feed', { posts: postData });
+    res.render('feed', { posts: postData, user: req.session.user });
   } catch (error) {
     console.error(error);
     res.status(400).json(error);
@@ -63,15 +63,19 @@ router.get('/profile', withAuth, async (req, res)=> {
   const posts = await Post.findAll({
     where: {
       user_id: req.session.user.id
-    }
+    },
+    include: {
+      model: User,
+      attributes: [ 'id', 'username' ]
+    },
+    order: [
+      ['createdAt', 'DESC']
+    ]
   });
 
   const postData = posts.map(post => post.get({ plain: true }));
 
-  res.render('profile', {
-    posts: postData,
-    user: req.session.user
-  });
+  res.render('profile', { posts: postData, user: req.session.user });
 });
 
 router.get('/logout', (req, res) => {
