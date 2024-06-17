@@ -4,10 +4,6 @@ body {
     margin: 0 auto;
     padding: 0;
     min-height: 100vh;
-    background-image: url('images/Pets.jpg');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: 100% 100%;
 }
 
 /* Navigation Bar */
@@ -102,7 +98,7 @@ body {
 
 
 .title{
-    color: white;
+    color: #5c9340;
     text-align: center;
     padding: 25px 0;
     text-transform: capitalize;
@@ -126,6 +122,7 @@ form input{
     border-radius: 3px;
     outline: none;
 }
+
 form input:focus{
     border:1px solid rgba(0,0,0,0.7);
     background: #efefef;
